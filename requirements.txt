@@ -1,0 +1,4 @@
+requests
+PyGithub
+gql==3.0.0a5
+python-dotenv
