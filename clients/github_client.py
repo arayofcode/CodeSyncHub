@@ -10,11 +10,11 @@ class GitHubClient:
     def create_file(self, path, commit_message, content, branch="main"):
         try:
             contents = self.repo.get_contents(path, ref=branch)
-            print(f"File present already. Updating it. Check here: https://github.com/arayofcode/LeetCode/tree/{branch}/{contents.path}")
+            print(f"File present already. Updating it. Check here: https://github.com/arayofcode/LeetCode/tree/{branch}/{path}")
             results = self.repo.update_file(path, commit_message, content, sha=contents.sha, branch=branch)
         except UnknownObjectException:
             results = self.repo.create_file(path, commit_message, content, branch=branch)
-            print(f"File {path} created. Check here: https://github.com/arayofcode/LeetCode/tree/{branch}/{contents.path}")
+            print(f"Created file {path}. Check here: https://github.com/arayofcode/LeetCode/tree/{branch}/{path}")
         return results
 
     def delete_file(self, path, commit_message, branch="main"):
