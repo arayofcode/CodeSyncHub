@@ -45,7 +45,7 @@ def sync_submission(github_client: GitHubClient, leetcode_client: LeetCodeClient
     github_client.create_file(filename, commit_message, code)
 
 def main():
-    load_dotenv()
+    load_dotenv("")
     
     github_token = os.getenv('GITHUB_TOKEN')
     repo_name = os.getenv('REPO_NAME')
