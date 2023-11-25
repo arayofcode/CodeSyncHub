@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y gcc libc-dev
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the content of the local app directory to the working directory
+COPY .env .
 COPY app/ .
 
 # Command to run on container start
