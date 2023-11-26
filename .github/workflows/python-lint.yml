@@ -1,0 +1,39 @@
+name: Python Linting
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8.10'
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 autopep8
+
+    - name: Run flake8
+      run: |
+        flake8 . --count --ignore=F401 --max-line-length=120 --exclude=.git,__pycache__,old,build,dist --statistics
+
+    - name: Run autopep8
+      run: |
+        autopep8 --in-place --aggressive --aggressive -r .
+
+    - name: Commit changes (if any)
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Apply autopep8 formatting
+        branch: ${{ github.head_ref }}
+        file_pattern: app/*.py

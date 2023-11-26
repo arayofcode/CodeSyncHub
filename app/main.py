@@ -3,7 +3,7 @@ import os
 from clients import GitHubClient, LeetCodeClient
 
 extensions = {
-    "golang" : "go",
+    "golang": "go",
     "java": "java",
     "python3": "py",
     "python": "py",
@@ -24,9 +24,15 @@ extensions = {
     "ruby": "rb"
 }
 
-def sync_submission(github_client: GitHubClient, leetcode_client: LeetCodeClient, submission_id: int, question_data: dict):
+
+def sync_submission(
+    github_client: GitHubClient,
+    leetcode_client: LeetCodeClient,
+    submission_id: int,
+    question_data: dict
+):
     submission_details = leetcode_client.get_submission_details(submission_id)
-    
+
     questionID = question_data["questionId"]
     difficulty = question_data["difficulty"]
     title = question_data["title"]
@@ -37,26 +43,34 @@ def sync_submission(github_client: GitHubClient, leetcode_client: LeetCodeClient
     filename = f"{directory_name}/{directory_name}.{extensions[submission_details['lang']['name']]}"
     code = submission_details["code"]
     notes = submission_details["notes"]
-    commit_message = f"Time: {submission_details['runtimeDisplay']} (Beats {submission_details['runtimePercentile']:.2f}%), Space: {submission_details['memoryDisplay']} (Beats {submission_details['memoryPercentile']:.2f}%)"
-    README = f"# [{questionID}. {title}](https://leetcode.com/problems/{title_slug})\n\n**Difficulty:** {difficulty}\n\n---\n\n{questionContent}\n```"
+    commit_message = (
+        f"Time: {submission_details['runtimeDisplay']} (Beats {submission_details['runtimePercentile']:.2f}%), "
+        f"Space: {submission_details['memoryDisplay']} (Beats {submission_details['memoryPercentile']:.2f}%)"
+    )
+    README = (
+        f"# [{questionID}. {title}](https://leetcode.com/problems/{title_slug})\n\n"
+        f"**Difficulty:** {difficulty}\n\n---\n\n{questionContent}\n"
+        "```"  # The content was markdown, and didn't end with ```
+    )
 
     github_client.create_file(f"{directory_name}/README.md", commit_message, README)
     github_client.create_file(f"{directory_name}/NOTES.md", commit_message, notes)
     github_client.create_file(filename, commit_message, code)
 
+
 def main():
     load_dotenv(find_dotenv())
-    
+
     github_token = os.getenv('GITHUB_TOKEN')
     repo_name = os.getenv('REPO_NAME')
     leetcode_cookie = os.getenv('LEETCODE_COOKIE')
 
     github_client = GitHubClient(token=github_token, repo_name=repo_name)
     print("GitHub client created.")
-    
+
     leetcode_client = LeetCodeClient(cookie=leetcode_cookie)
     print("LeetCode client created.")
-    
+
     questions = leetcode_client.get_solved_questions()
     print(f"Found {len(questions)} questions.")
     for question in questions:
@@ -65,6 +79,7 @@ def main():
             sync_submission(github_client, leetcode_client, submission_id, question)
 
     github_client.close()
+
 
 if __name__ == "__main__":
     main()

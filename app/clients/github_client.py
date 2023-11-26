@@ -1,6 +1,7 @@
 from github import Github, Auth
 from github.GithubException import UnknownObjectException
 
+
 class GitHubClient:
     def __init__(self, token, repo_name):
         self.auth = Auth.Token(token)
@@ -10,7 +11,10 @@ class GitHubClient:
     def create_file(self, path, commit_message, content, branch="main"):
         try:
             contents = self.repo.get_contents(path, ref=branch)
-            print(f"File present already. Updating it. Check here: https://github.com/arayofcode/LeetCode/tree/{branch}/{path}")
+            print(
+                f"File present already. Updating it. Check here: "
+                f"https://github.com/arayofcode/LeetCode/tree/{branch}/{path}"
+            )
             results = self.repo.update_file(path, commit_message, content, sha=contents.sha, branch=branch)
         except UnknownObjectException:
             results = self.repo.create_file(path, commit_message, content, branch=branch)

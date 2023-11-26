@@ -1,6 +1,7 @@
 from gql import Client, gql
 from gql.transport.requests import RequestsHTTPTransport
 
+
 class LeetCodeClient:
     def __init__(self, cookie):
         self.transport = RequestsHTTPTransport(
@@ -16,7 +17,12 @@ class LeetCodeClient:
 
     def get_solved_questions(self):
         query = gql("""
-        query problemsetQuestionList($categorySlug: String, $limit: Int, $skip: Int, $filters: QuestionListFilterInput) {
+        query problemsetQuestionList(
+                $categorySlug: String,
+                $limit: Int,
+                $skip: Int,
+                $filters: QuestionListFilterInput
+        ) {
             problemsetQuestionList: questionList(
                 categorySlug: $categorySlug
                 limit: $limit
@@ -41,7 +47,8 @@ class LeetCodeClient:
         """)
         try:
             with self.client as client:
-                result = client.execute(query, variable_values={"categorySlug": "","skip": 0,"limit": 50,"filters":{"status": "AC"}})
+                result = client.execute(query, variable_values={
+                                        "categorySlug": "", "skip": 0, "limit": 50, "filters": {"status": "AC"}})
                 return result["problemsetQuestionList"]["questions"]
         except Exception as e:
             print(f"An error occurred: {e}")
@@ -49,7 +56,14 @@ class LeetCodeClient:
 
     def get_accepted_submissionID(self, question_slug):
         query = gql("""
-        query submissionList($offset: Int!, $limit: Int!, $lastKey: String, $questionSlug: String!, $lang: Int, $status: Int) {
+        query submissionList(
+            $offset: Int!,
+            $limit: Int!,
+            $lastKey: String,
+            $questionSlug: String!,
+            $lang: Int,
+            $status: Int
+        ) {
             questionSubmissionList(
                 offset: $offset
                 limit: $limit
@@ -67,13 +81,18 @@ class LeetCodeClient:
         try:
             with self.client as client:
                 # Status 10 means accepted
-                result = client.execute(query, variable_values={"questionSlug": question_slug, "offset": 0, "limit": 20, "lastKey": None, "status": 10})
+                result = client.execute(query, variable_values={
+                                        "questionSlug": question_slug,
+                                        "offset": 0,
+                                        "limit": 20,
+                                        "lastKey": None,
+                                        "status": 10}
+                                        )
                 ids = result["questionSubmissionList"]["submissions"]
                 return [id["id"] for id in ids]
         except Exception as e:
             print(f"An error occurred: {e}")
             return None
-
 
     def get_submission_details(self, submission_id):
         query = gql("""
