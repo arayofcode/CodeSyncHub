@@ -1,7 +1,7 @@
-# Style Guide for LeetCode-Sync
+# Style Guide for CodeSyncHub
 
 ## Overview
-This document outlines coding conventions and best practices to maintain consistency, readability, and quality in the LeetCode-Sync project.
+This document outlines coding conventions and best practices to maintain consistency, readability, and quality in the CodeSyncHub project.
 
 ## Coding Conventions
 

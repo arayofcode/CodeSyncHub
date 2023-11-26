@@ -1,7 +1,7 @@
-# Contributing to LeetCode-Sync
+# Contributing to CodeSyncHub
 
 ## Introduction
-Thank you for your interest in contributing to LeetCode-Sync! This document provides guidelines on how to contribute effectively to the project.
+Thank you for your interest in contributing to CodeSyncHub! This document provides guidelines on how to contribute effectively to the project.
 
 ## Getting Started
 
@@ -19,7 +19,7 @@ Thank you for your interest in contributing to LeetCode-Sync! This document prov
 
 1. **Pull Latest Changes**: Rebase your branch with the latest changes from the main branch.
 2. **Push Your Changes**: Push your changes to your fork.
-3. **Open a Pull Request (PR)**: Create a PR from your branch to the main LeetCode-Sync repository. Fill out the PR template with the necessary details.
+3. **Open a Pull Request (PR)**: Create a PR from your branch to the main CodeSyncHub repository. Fill out the PR template with the necessary details.
 
 ## Review Process
 
@@ -36,4 +36,4 @@ Thank you for your interest in contributing to LeetCode-Sync! This document prov
 
 - If you have questions or need help, feel free to open an issue for discussion.
 
-Thank you for contributing to LeetCode-Sync! Your efforts are greatly appreciated and help improve the project.
+Thank you for contributing to CodeSyncHub! Your efforts are greatly appreciated and help improve the project.

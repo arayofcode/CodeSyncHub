@@ -1,10 +1,10 @@
-# LeetCode-Sync
+# CodeSyncHub
 
 ## Introduction
-Hello! After LeetHub was discontinued, I found myself using several tools that would work for a while and then stop. As a result, I decided to build LeetCode-Sync as a replacement. Please note that the name is a placeholder for now, and I plan to change it in the near future. This is an open-source project, and contributions are warmly welcomed.
+Hello! After LeetHub was discontinued, I found myself using several tools that would work for a while and then stop. As a result, I decided to build CodeSyncHub as a replacement. Please note that the name is a placeholder for now, and I plan to change it in the near future. This is an open-source project, and contributions are warmly welcomed.
 
 ## Vision
-My vision for LeetCode-Sync is to create an indispensable tool for coding enthusiasts and professionals. I aim to seamlessly integrate coding practice with professional portfolios, thereby enhancing the visibility of problem-solving skills and technical proficiency.
+My vision for CodeSyncHub is to create an indispensable tool for coding enthusiasts and professionals. I aim to seamlessly integrate coding practice with professional portfolios, thereby enhancing the visibility of problem-solving skills and technical proficiency.
 
 ## Objectives
 - **Automate Synchronization:** To facilitate the automatic syncing of code submissions from LeetCode to a user's chosen GitHub repository.
@@ -28,10 +28,10 @@ My vision for LeetCode-Sync is to create an indispensable tool for coding enthus
 - Commit all files in a single batch for efficiency.
 
 ## License
-LeetCode-Sync is released under the [MIT License](LICENSE).
+CodeSyncHub is released under the [MIT License](LICENSE).
 
 ## Contributing
-Contributions to LeetCode-Sync are always welcome! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to make a contribution.
+Contributions to CodeSyncHub are always welcome! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to make a contribution.
 
 ## Discussions and Issues
 - For general discussions, questions, and ideas, please use the [Discussions](link-to-discussions) tab.
