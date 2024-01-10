@@ -1,7 +1,7 @@
 # CodeSyncHub
 
 ## Introduction
-Hello! After LeetHub was discontinued, I found myself using several tools that would work for a while and then stop. As a result, I decided to build CodeSyncHub as a replacement. Please note that the name is a placeholder for now, and I plan to change it in the near future. This is an open-source project, and contributions are warmly welcomed. Please refer to the docs directory, which will contain the relevant documentation. It will eventually move to the Wiki page.
+Hello! After LeetHub was discontinued, I found myself using several tools that would work for a while and then stop. As a result, I decided to build CodeSyncHub as a replacement. Please note that the name is a placeholder for now, and I might change it in the near future. This is an open-source project, and contributions are warmly welcomed. Please refer to the docs directory, which will contain the relevant documentation. It will eventually move to the Wiki page.
 
 ## Vision
 My vision for CodeSyncHub is to create an indispensable tool for coding enthusiasts and professionals. I aim to seamlessly integrate coding practice with professional portfolios, thereby enhancing the visibility of problem-solving skills and technical proficiency.
